@@ -1,0 +1,11 @@
+canvas {
+  width: 100% !important;
+  height: 300px;
+}
+
+button {
+  margin: 10px 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
