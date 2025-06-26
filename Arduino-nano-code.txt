@@ -1,0 +1,19 @@
+const int ecgPin = A0;    // Analog input for ECG signal
+const int loPlus = 10;    // Digital input for LO+
+const int loMinus = 11;   // Digital input for LO−
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(loPlus, INPUT);
+  pinMode(loMinus, INPUT);
+}
+
+void loop() {
+  if (digitalRead(loPlus) == 1 || digitalRead(loMinus) == 1) {
+    Serial.println("!");  // Indicates lead-off detection
+  } else {
+    int ecgValue = analogRead(ecgPin);
+    Serial.println(ecgValue);
+  }
+  delay(200);  // ~500 Hz sampling rate, suitable for ECG
+}
